@@ -97,7 +97,7 @@ def main(args):
 
     '''DATA LOADING'''
     log_string('Load dataset ...')
-    DATA_PATH = 'data/modelnet40_normal_resampled/'
+    DATA_PATH = '/content/Pointnet_Pointnet2_pytorch/data/modelnet10/'
 
     TRAIN_DATASET = ModelNetDataLoader(root=DATA_PATH, npoint=args.num_point, split='train',
                                                      normal_channel=args.normal)
@@ -107,7 +107,7 @@ def main(args):
     testDataLoader = torch.utils.data.DataLoader(TEST_DATASET, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
     '''MODEL LOADING'''
-    num_class = 40
+    num_class = 10
     MODEL = importlib.import_module(args.model)
     shutil.copy('./models/%s.py' % args.model, str(experiment_dir))
     shutil.copy('./models/pointnet_util.py', str(experiment_dir))
