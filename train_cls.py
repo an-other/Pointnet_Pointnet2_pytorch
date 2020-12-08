@@ -116,7 +116,7 @@ def main(args):
     criterion = MODEL.get_loss().cuda()
 
     try:
-        checkpoint = torch.load(str(experiment_dir) + '/checkpoints/best_model.pth')
+        checkpoint = torch.load('/content/drive/MyDrive/pointnet/best_model.pth')
         start_epoch = checkpoint['epoch']
         classifier.load_state_dict(checkpoint['model_state_dict'])
         log_string('Use pretrain model')
